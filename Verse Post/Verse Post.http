@@ -1,0 +1,6 @@
+@Verse_Post_HostAddress = http://localhost:5212
+
+GET {{Verse_Post_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

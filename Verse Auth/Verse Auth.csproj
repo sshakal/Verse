@@ -1,10 +1,11 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>f496bb68-4a9b-4574-a5f3-e67da9c727e6</UserSecretsId>
+    <RootNamespace>Verse_Auth</RootNamespace>
+    <UserSecretsId>4f5c81c0-1559-4c87-9582-5a78bdb9f89e</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
@@ -15,6 +16,10 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
+    <Folder Include="Entities\" />
+    <Folder Include="Repositories\" />
+    <Folder Include="Services\" />
+    <Folder Include="DTOs\" />
   </ItemGroup>
 
 </Project>
