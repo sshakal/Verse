@@ -18,7 +18,22 @@ namespace Verse_Post.Data
             modelBuilder.Entity<Post>()
                 .HasMany(p => p.Tags)
                 .WithMany(t => t.Posts)
-                .UsingEntity(j => j.ToTable("PostTags"));
+                .UsingEntity<Dictionary<string, object>>(
+                    "PostTags", // Имя промежуточной таблицы
+                    j => j
+                        .HasOne<Tag>()
+                        .WithMany()
+                        .HasForeignKey("TagId")
+                        .OnDelete(DeleteBehavior.Cascade), // Внешний ключ для Tag
+                    j => j
+                        .HasOne<Post>()
+                        .WithMany()
+                        .HasForeignKey("PostId")
+                        .OnDelete(DeleteBehavior.Cascade), // Внешний ключ для Post
+                    j =>
+                    {
+                        j.HasKey("PostId", "TagId"); // Составной ключ
+                    });
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using Verse_Post.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using Verse_Post.Data;
+using Verse_Post.Models;
 
 namespace Verse_Post.Repositories
 {
