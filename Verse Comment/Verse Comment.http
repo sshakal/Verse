@@ -1,0 +1,6 @@
+@Verse_Comment_HostAddress = http://localhost:5159
+
+GET {{Verse_Comment_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
