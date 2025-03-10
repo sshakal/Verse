@@ -81,16 +81,14 @@ namespace Verse_Comment.Services
                 ParentCommentId = comment.ParentCommentId,
                 CreatedAt = comment.CreatedAt,
                 UpdatedAt = comment.UpdatedAt,
-                Replies = comment.Replies.Select(MapToResponse).ToList() // Рекурсивно маппим вложенные комментарии
+                Replies = comment.Replies.Select(MapToResponse).ToList() 
             };
         }
 
         private int GetCurrentUserId()
         {
             var userIdClaim = _httpContextAccessor.HttpContext?.User.FindFirst(ClaimTypes.NameIdentifier);
-            if (userIdClaim == null)
-                throw new Exception("User not authenticated");
-            return int.Parse(userIdClaim.Value);
+            return userIdClaim == null ? throw new Exception("User not authenticated") : int.Parse(userIdClaim.Value);
         }
     }
 }
